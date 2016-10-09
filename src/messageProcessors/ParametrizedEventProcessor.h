@@ -9,8 +9,8 @@
 #ifndef ParametrizedEventProcessor_h
 #define ParametrizedEventProcessor_h
 
-#include "message/Message.h"
-#include "parametrizedEvents/ParametrizedEvent.h"
+#include "../messages/Message.h"
+#include "../parametrizedEvents/ParametrizedEvent.h"
 
 
 void parametrizedEventProcessorFoo(Message message)

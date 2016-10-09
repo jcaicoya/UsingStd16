@@ -9,8 +9,8 @@
 #ifndef EventProcessorUsingFactory_h
 #define EventProcessorUsingFactory_h
 
-#include "message/Message.h"
-#include "event/EventFactory.h"
+#include "../messages/Message.h"
+#include "../events/EventFactory.h"
 
 
 void eventProcessorUsingFactoryFoo(Message message)
