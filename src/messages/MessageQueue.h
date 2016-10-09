@@ -2,9 +2,6 @@
 //  MessageQueue.h
 //  UsingStd16
 //
-//  Created by Tweak on 25/9/16.
-//  Copyright © 2016 Tweak. All rights reserved.
-//
 
 #ifndef MessageQueue_h
 #define MessageQueue_h
@@ -24,10 +21,10 @@ public:
     
     void load()
     {
-        for(int ii=1; ii<=10; ii++)
-        {
-            _queue.push(Message(ii % 4));
-        }
+        _queue.push(Message(1, "C # Stormtrooper # FN-2186"));
+        _queue.push(Message(2, "M # Stormtrooper # FN-2186 # FN-2187"));
+        _queue.push(Message(3, "B # Stormtrooper FN-2187 betrayer"));
+        _queue.push(Message(4, "E # Stormtrooper FN-2187"));
     }
     
     bool empty() const { return _queue.empty(); }

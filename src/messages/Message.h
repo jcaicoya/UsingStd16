@@ -2,27 +2,35 @@
 //  Message.h
 //  UsingStd16
 //
-//  Created by Tweak on 25/9/16.
-//  Copyright © 2016 Tweak. All rights reserved.
-//
+
 
 #ifndef Message_h
 #define Message_h
 
-#include <queue>
+#include <string>
+#include <iostream>
+
 
 
 class Message
 {
 public:
-    explicit Message(int data) : _data(data)
+    explicit Message(int identifier,
+                     std::string data) : _identifier(identifier), _data(data)
     {}
     
-    int getData() const { return _data; }
+    int getIdentifier() const { return _identifier; }
+    std::string getData() const { return _data; }
     
 private:
-    int _data;
+    int _identifier;
+    std::string _data;
 };
 
+
+std::ostream & operator<<(std::ostream &out, const Message &message)
+{
+    return out << "[identifier:" << message.getIdentifier() << "|" << message.getData() << "]";
+}
 
 #endif /* Message_h */

@@ -2,14 +2,17 @@
 //  UnknonwnEvent.h
 //  UsingStd16
 //
-//  Created by Tweak on 20/8/16.
-//  Copyright © 2016 Tweak. All rights reserved.
-//
+
 
 #ifndef UnknonwnEvent_h
 #define UnknonwnEvent_h
 
+#include "EventItf.h"
+
 #include <iostream>
+#include <string>
+
+
 
 class EventFactory;
 
@@ -18,19 +21,29 @@ class UnknonwnEvent: public EventItf
 {
 public:
     
-    void execute() { std::cout << "UnknonwnEvent::execute() - " << _messageId << std::endl; }
+    void execute() { std::cout << "UnknonwnEvent::execute() - " << *this << std::endl; }
 
 private:
-    int _messageId;
-    
+    int _identifier;
+    std::string _data;
+        
     UnknonwnEvent(const UnknonwnEvent &) = delete;
     UnknonwnEvent & operator=(const UnknonwnEvent &) = delete;
 
 public: //comment when factory used
-    explicit UnknonwnEvent(int messageId) : _messageId(messageId) {}
+    explicit UnknonwnEvent(int identifier,
+                           std::string data) : _identifier(identifier),
+                                               _data(data)
+    {}
     
     friend class EventFactory;
+    friend std::ostream& operator<<(std::ostream &out, const UnknonwnEvent &unknownEvent);
 };
 
+
+std::ostream & operator<<(std::ostream &out, const UnknonwnEvent &unknownEvent)
+{
+    return std::cout << "[identifier:" << unknownEvent._identifier << "|data:" << unknownEvent._data << "]";
+}
 
 #endif /* UnknonwnEvent_h */

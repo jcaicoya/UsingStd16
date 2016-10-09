@@ -2,9 +2,7 @@
 //  MessageQueueProcessor.h
 //  UsingStd16
 //
-//  Created by Tweak on 25/9/16.
-//  Copyright © 2016 Tweak. All rights reserved.
-//
+
 
 #ifndef MessageQueueProcessor_h
 #define MessageQueueProcessor_h
@@ -36,6 +34,7 @@ public:
         {
             Message currentMessage = _messageQueue.front();
             _messageQueue.pop();
+            std::cout << "Processing message: " << currentMessage << std::endl;
             processMessage(currentMessage);
         }
     }

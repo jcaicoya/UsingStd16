@@ -2,9 +2,7 @@
 //  main.cpp
 //  UsingStd16
 //
-//  Created by Tweak on 20/8/16.
-//  Copyright © 2016 Tweak. All rights reserved.
-//
+
 
 #include "messages/MessageQueue.h"
 #include "messages/MessageQueueProcessor.h"
@@ -17,18 +15,36 @@
 
 int main(int argc, const char * argv[])
 {
-    
+   
     MessageQueue messageQueue;
     messageQueue.load();
     
     MessageQueueProcessor messageQueueProcessor;
-    //1. messageQueueProcessor.setProcessMessageFoo(oldStyleProcessorFoo);
-    //2. messageQueueProcessor.setProcessMessageFoo(eventProcessorFoo);
-    //3. messageQueueProcessor.setProcessMessageFoo(eventProcessorUsingFactoryFoo);
+    
+    
+    std::cout << "1. C style processing:" << std::endl;
+    messageQueueProcessor.setProcessMessageFoo(oldStyleProcessorFoo);
+    messageQueueProcessor.addMessageQueue(messageQueue);
+    messageQueueProcessor.run();
+    
+    
+    std::cout << "2. OOP style processing:" << std::endl;
+    messageQueueProcessor.setProcessMessageFoo(eventProcessorFoo);
+    messageQueueProcessor.addMessageQueue(messageQueue);
+    messageQueueProcessor.run();
+
+    
+    std::cout << "3. With factory pattern processing:" << std::endl;
     messageQueueProcessor.setProcessMessageFoo(eventProcessorUsingFactoryFoo);
+    messageQueueProcessor.addMessageQueue(messageQueue);
+    messageQueueProcessor.run();
+
+    
+    std::cout << "4. Templatized processing:" << std::endl;
     messageQueueProcessor.setProcessMessageFoo(parametrizedEventProcessorFoo);
     messageQueueProcessor.addMessageQueue(messageQueue);
     messageQueueProcessor.run();
+    
     
     return 0;
 }

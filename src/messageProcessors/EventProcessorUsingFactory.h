@@ -2,22 +2,21 @@
 //  EventProcessorUsingFactory-h.h
 //  UsingStd16
 //
-//  Created by Tweak on 27/9/16.
-//  Copyright © 2016 Tweak. All rights reserved.
-//
+
 
 #ifndef EventProcessorUsingFactory_h
 #define EventProcessorUsingFactory_h
 
-#include "../messages/Message.h"
+#include "messages/Message.h"
 #include "../events/EventFactory.h"
 
 
 void eventProcessorUsingFactoryFoo(Message message)
 {
-    int messageData = message.getData();
+    int messageIdentifier = message.getIdentifier();
+    std::string messageData = message.getData();
     
-    std::shared_ptr<EventItf> event = EventFactory::Build(messageData);
+    std::shared_ptr<EventItf> event = EventFactory::Build(messageIdentifier, messageData);
     
     event->execute();
 }

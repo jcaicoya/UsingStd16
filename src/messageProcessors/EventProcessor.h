@@ -2,9 +2,7 @@
 //  EventProcessor.h
 //  UsingStd16
 //
-//  Created by Tweak on 27/9/16.
-//  Copyright © 2016 Tweak. All rights reserved.
-//
+
 
 #ifndef EventProcessor_h
 #define EventProcessor_h
@@ -21,26 +19,28 @@
 
 void eventProcessorFoo(Message message)
 {
-    int messageData = message.getData();
+    int messageIdentifier = message.getIdentifier();
+    std::string messageData = message.getData();
     
-    std::shared_ptr<EventItf> event = nullptr;
-    if(messageData == 1)
-    {
-        event = std::make_shared<CreationEvent>(messageData);
-    }
-    else if(messageData == 2)
-    {
-        event = std::make_shared<UpdateEvent>(messageData);
-    }
-    else if(messageData == 3)
-    {
-        event = std::make_shared<EraseEvent>(messageData);
-    }
-    else
-    {
-        event = std::make_shared<UnknonwnEvent>(messageData);
-    }
+    std::shared_ptr<EventItf> event = std::make_shared<UnknonwnEvent>(messageIdentifier, messageData);;
     
+    if(false == messageData.empty())
+    {
+        char firstLetter = *messageData.begin();
+        if(firstLetter == 'C')
+        {
+            event = std::make_shared<CreationEvent>(messageIdentifier, messageData);
+        }
+        else if(firstLetter == 'U')
+        {
+            event = std::make_shared<UpdateEvent>(messageIdentifier, messageData);
+        }
+        else if(firstLetter == 'E')
+        {
+            event = std::make_shared<EraseEvent>(messageIdentifier, messageData);
+        }
+    }
+
     event->execute();
 }
 

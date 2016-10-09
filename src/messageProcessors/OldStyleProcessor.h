@@ -1,38 +1,55 @@
 //
-//  OldStyleProcessor.h
+//  CStyleProcessor.h
 //  UsingStd16
 //
-//  Created by Tweak on 25/9/16.
-//  Copyright © 2016 Tweak. All rights reserved.
-//
+
 
 #ifndef OldStyleProcessor_h
 #define OldStyleProcessor_h
 
 #include "messages/Message.h"
+#include "events/CreationEvent.h"
+#include "events/UpdateEvent.h"
+#include "events/EraseEvent.h"
+#include "events/UnknownEvent.h"
 
 #include <iostream>
 
 
 void oldStyleProcessorFoo(Message message)
 {
-    int messageData = message.getData();
+    int messageIdentifier = message.getIdentifier();
+    std::string messageData = message.getData();
     
-    if(messageData == 1)
+    bool validMessage = false;
+    
+    if(false == messageData.empty())
     {
-        std::cout << "Managing message with data: 1 -> creation" << std::endl;
+        char firstLetter = *messageData.begin();
+        if(firstLetter == 'C')
+        {
+            validMessage = true;
+            CreationEvent creationEvent(messageIdentifier, messageData);
+            creationEvent.execute();
+        }
+        else if(firstLetter == 'U')
+        {
+            validMessage = true;
+            UpdateEvent updateEvent(messageIdentifier, messageData);
+            updateEvent.execute();
+        }
+        else if(firstLetter == 'E')
+        {
+            validMessage = true;
+            EraseEvent eraseEvent(messageIdentifier, messageData);
+            eraseEvent.execute();
+        }
     }
-    else if(messageData == 2)
+    
+    if(false == validMessage)
     {
-        std::cout << "Managing message with data: 2 -> update" << std::endl;
-    }
-    else if(messageData == 3)
-    {
-        std::cout << "Managing message with data: 3 -> erase" << std::endl;
-    }
-    else
-    {
-        std::cout << "Managing message with data: " << messageData << " -> unknonwn" << std::endl;
+        UnknonwnEvent unknownEvent(messageIdentifier, messageData);
+        unknownEvent.execute();
     }
 }
 
