@@ -10,9 +10,6 @@
 
 
 
-#define BOOST_TEST_MODULE testModule
-
-
 struct DataBaseFixture
 {
     DataBaseFixture() : dataBase() { BOOST_TEST_MESSAGE("setup fixture"); }
@@ -22,7 +19,7 @@ struct DataBaseFixture
 };
 
 
-BOOST_FIXTURE_TEST_SUITE(testSuite, DataBaseFixture)
+BOOST_FIXTURE_TEST_SUITE(processTestSuite, DataBaseFixture)
 
 
 BOOST_AUTO_TEST_CASE(Init)
@@ -48,7 +45,7 @@ BOOST_AUTO_TEST_CASE(CreateSecondElement)
 {
     BOOST_TEST_MESSAGE("Test case: CreateSecondElement");
     
-    const char * message = "2#C#FN-2187";
+    const char *message = "2#C#FN-2187";
     processMessage(message, dataBase);
     
     BOOST_TEST(dataBase.contains("FN-2186"));
@@ -61,7 +58,7 @@ BOOST_AUTO_TEST_CASE(EraseSecondElement)
 {
     BOOST_TEST_MESSAGE("test case: EraseSecondElement");
     
-    const char * message = "3#E#FN-2187"
+    const char *message = "3#E#FN-2187";
     processMessage(message, dataBase);
     
     BOOST_TEST(dataBase.contains("FN-2186"));
@@ -73,7 +70,7 @@ BOOST_AUTO_TEST_CASE(EraseFirstElement)
 {
     BOOST_TEST_MESSAGE("Test case: EraseFirstElement");
     
-    const char * message = "4#E#FN-2186"
+    const char *message = "4#E#FN-2186";
     processMessage(message, dataBase);
     
     BOOST_TEST(false == dataBase.contains("FN-2186"));

@@ -134,7 +134,7 @@ std::string parametersToString(ParameterType currentParameter,
                                ArgumentTypes... arguments)
 {
     std::stringstream ss;
-    ss << currentParameter;
+    ss << currentParameter << '-';
     std::string data = ss.str();
     return data + parametersToString(arguments...);
 }
@@ -151,7 +151,7 @@ template <typename... ArgumentTypes>
 std::string parametersToString(std::string currentParameter,
                                ArgumentTypes... arguments)
 {
-    return currentParameter + parametersToString(arguments...);
+    return currentParameter + '-' + parametersToString(arguments...);
 }
     
     
@@ -171,7 +171,6 @@ bool foo5(MagicDataBase<std::string> &dataBase,
     std::size_t size = dataBase.size();
     dataBase.insert(data);
     return dataBase.size() == size + 1;
-
 }
     
 

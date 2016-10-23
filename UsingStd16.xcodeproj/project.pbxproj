@@ -34,6 +34,7 @@
 /* Begin PBXFileReference section */
 		61A8586D1DBA8DE400B77278 /* libboost_unit_test_framework.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_unit_test_framework.dylib; path = libs/libboost_unit_test_framework.dylib; sourceTree = "<group>"; };
 		61AB9EFB1DAA62B100FDED76 /* UsingStd16 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UsingStd16; sourceTree = BUILT_PRODUCTS_DIR; };
+		61AC95FB1DBD578F0087FE7A /* processMessageImplementations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = processMessageImplementations.h; sourceTree = SOURCE_ROOT; };
 		61BC0DAD1DBCB22700085DF8 /* main_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main_test.cpp; path = src/test/main_test.cpp; sourceTree = SOURCE_ROOT; };
 		61BC0DAE1DBCB22700085DF8 /* processTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = processTest.h; path = src/test/processTest.h; sourceTree = SOURCE_ROOT; };
 		61BC0DAF1DBCB22700085DF8 /* templateTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = templateTest.h; path = src/test/templateTest.h; sourceTree = SOURCE_ROOT; };
@@ -131,6 +132,7 @@
 			children = (
 				61CCC14E1DBCB67700385209 /* templateExamples.h */,
 				61CCC14F1DBCB6AE00385209 /* processMessage.h */,
+				61AC95FB1DBD578F0087FE7A /* processMessageImplementations.h */,
 			);
 			name = core;
 			sourceTree = "<group>";
