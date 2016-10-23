@@ -67,6 +67,7 @@ bool foo3(DataBase<DataType> &dataBase,
 }
 
 
+// TODO: review this example //
 // Specialization over a generic container of particular type
 //
 template <typename DataBaseValueType,
@@ -97,7 +98,6 @@ bool foo4(MagicDataBase<std::string> &dataBase,
     return dataBase.size() == size + 1;
 }
 
-
 // Total specialization
 //
 template <>
@@ -112,8 +112,67 @@ bool foo4(MagicDataBase<std::string> &dataBase,
     dataBase.insert(data);
     return dataBase.size() == size + 1;
 }
-    
 
+
+
+///////////////////////////////////
+// Variadic templates
+//
+template <typename ParameterType>
+std::string parametersToString(ParameterType lastParameter)
+{
+    std::stringstream ss;
+    ss << lastParameter;
+    std::string data = ss.str();
+    return data;
+}
+    
+    
+template <typename ParameterType,
+          typename... ArgumentTypes>
+std::string parametersToString(ParameterType currentParameter,
+                               ArgumentTypes... arguments)
+{
+    std::stringstream ss;
+    ss << currentParameter;
+    std::string data = ss.str();
+    return data + parametersToString(arguments...);
+}
+  
+
+
+std::string parametersToString(std::string lastParameter)
+{
+    return lastParameter;
+}
+    
+    
+template <typename... ArgumentTypes>
+std::string parametersToString(std::string currentParameter,
+                               ArgumentTypes... arguments)
+{
+    return currentParameter + parametersToString(arguments...);
+}
+    
+    
+    
+// TODO: variadic templates in reverse order
+
+    
+template <typename... ArgumentTypes>
+bool foo5(MagicDataBase<std::string> &dataBase,
+          ArgumentTypes... arguments)
+{
+    std::string data = parametersToString(arguments...);
+    if(true == dataBase.contains(data))
+    {
+        return true;
+    }
+    std::size_t size = dataBase.size();
+    dataBase.insert(data);
+    return dataBase.size() == size + 1;
+
+}
     
 
 
