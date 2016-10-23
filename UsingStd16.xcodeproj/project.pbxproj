@@ -7,28 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		61A22B5E1DAAA7A1000E75AE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61A22B5D1DAAA7A1000E75AE /* main.cpp */; };
+		61BC0DBC1DBCB2B500085DF8 /* libboost_unit_test_framework.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 61BC0DB81DBCB2B500085DF8 /* libboost_unit_test_framework.dylib */; };
+		61BC0DBE1DBCB33D00085DF8 /* main_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61BC0DAD1DBCB22700085DF8 /* main_test.cpp */; };
+		61BC0DBF1DBCB34B00085DF8 /* libboost_chrono.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61BC0DB51DBCB2B500085DF8 /* libboost_chrono.dylib */; };
+		61BC0DC01DBCB34B00085DF8 /* libboost_system.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61BC0DB61DBCB2B500085DF8 /* libboost_system.dylib */; };
+		61BC0DC11DBCB34B00085DF8 /* libboost_timer.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61BC0DB71DBCB2B500085DF8 /* libboost_timer.dylib */; };
+		61BC0DC21DBCB34B00085DF8 /* libboost_unit_test_framework.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 61BC0DB81DBCB2B500085DF8 /* libboost_unit_test_framework.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		61AB9EF91DAA62B100FDED76 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 16;
 			files = (
+				61BC0DBF1DBCB34B00085DF8 /* libboost_chrono.dylib in CopyFiles */,
+				61BC0DC01DBCB34B00085DF8 /* libboost_system.dylib in CopyFiles */,
+				61BC0DC11DBCB34B00085DF8 /* libboost_timer.dylib in CopyFiles */,
+				61BC0DC21DBCB34B00085DF8 /* libboost_unit_test_framework.dylib in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		61A22B5D1DAAA7A1000E75AE /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+		61A8586D1DBA8DE400B77278 /* libboost_unit_test_framework.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_unit_test_framework.dylib; path = libs/libboost_unit_test_framework.dylib; sourceTree = "<group>"; };
 		61AB9EFB1DAA62B100FDED76 /* UsingStd16 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = UsingStd16; sourceTree = BUILT_PRODUCTS_DIR; };
-		61AB9F051DAA645000FDED76 /* events */ = {isa = PBXFileReference; lastKnownFileType = text; name = events; path = src/events; sourceTree = "<group>"; };
-		61AB9F061DAA646000FDED76 /* messageProcessors */ = {isa = PBXFileReference; lastKnownFileType = text; name = messageProcessors; path = src/messageProcessors; sourceTree = "<group>"; };
-		61AB9F071DAA647A00FDED76 /* messages */ = {isa = PBXFileReference; lastKnownFileType = text; name = messages; path = src/messages; sourceTree = "<group>"; };
-		61AB9F081DAA648B00FDED76 /* parametrizedEvents */ = {isa = PBXFileReference; lastKnownFileType = text; name = parametrizedEvents; path = src/parametrizedEvents; sourceTree = "<group>"; };
+		61BC0DAD1DBCB22700085DF8 /* main_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main_test.cpp; path = src/test/main_test.cpp; sourceTree = SOURCE_ROOT; };
+		61BC0DAE1DBCB22700085DF8 /* processTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = processTest.h; path = src/test/processTest.h; sourceTree = SOURCE_ROOT; };
+		61BC0DAF1DBCB22700085DF8 /* templateTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = templateTest.h; path = src/test/templateTest.h; sourceTree = SOURCE_ROOT; };
+		61BC0DB21DBCB29300085DF8 /* MagicDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MagicDataBase.h; path = src/magicDataBase/MagicDataBase.h; sourceTree = SOURCE_ROOT; };
+		61BC0DB31DBCB29300085DF8 /* MagicDataBaseImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MagicDataBaseImpl.h; path = src/magicDataBase/MagicDataBaseImpl.h; sourceTree = SOURCE_ROOT; };
+		61BC0DB51DBCB2B500085DF8 /* libboost_chrono.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_chrono.dylib; path = libs/libboost_chrono.dylib; sourceTree = "<group>"; };
+		61BC0DB61DBCB2B500085DF8 /* libboost_system.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_system.dylib; path = libs/libboost_system.dylib; sourceTree = "<group>"; };
+		61BC0DB71DBCB2B500085DF8 /* libboost_timer.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_timer.dylib; path = libs/libboost_timer.dylib; sourceTree = "<group>"; };
+		61BC0DB81DBCB2B500085DF8 /* libboost_unit_test_framework.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_unit_test_framework.dylib; path = libs/libboost_unit_test_framework.dylib; sourceTree = "<group>"; };
+		61CCC14E1DBCB67700385209 /* templateExamples.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = templateExamples.h; path = src/core/templateExamples.h; sourceTree = SOURCE_ROOT; };
+		61CCC14F1DBCB6AE00385209 /* processMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = processMessage.h; path = src/core/processMessage.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,17 +52,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61BC0DBC1DBCB2B500085DF8 /* libboost_unit_test_framework.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		61A8586C1DBA8DE400B77278 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				61A8586D1DBA8DE400B77278 /* libboost_unit_test_framework.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		61AB9EF21DAA62B100FDED76 = {
 			isa = PBXGroup;
 			children = (
-				61AB9EFD1DAA62B100FDED76 /* src */,
+				61BC0DB41DBCB2A700085DF8 /* libs */,
 				61AB9EFC1DAA62B100FDED76 /* Products */,
+				61AB9EFD1DAA62B100FDED76 /* src */,
+				61A8586C1DBA8DE400B77278 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -61,14 +88,51 @@
 		61AB9EFD1DAA62B100FDED76 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				61A22B5D1DAAA7A1000E75AE /* main.cpp */,
-				61AB9F081DAA648B00FDED76 /* parametrizedEvents */,
-				61AB9F071DAA647A00FDED76 /* messages */,
-				61AB9F051DAA645000FDED76 /* events */,
-				61AB9F061DAA646000FDED76 /* messageProcessors */,
+				61BC0DC31DBCB4A000085DF8 /* core */,
+				61BC0DB11DBCB27100085DF8 /* magicDataBase */,
+				61BC0DAC1DBCB21600085DF8 /* test */,
 			);
 			name = src;
 			path = UsingStd16;
+			sourceTree = "<group>";
+		};
+		61BC0DAC1DBCB21600085DF8 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				61BC0DAD1DBCB22700085DF8 /* main_test.cpp */,
+				61BC0DAE1DBCB22700085DF8 /* processTest.h */,
+				61BC0DAF1DBCB22700085DF8 /* templateTest.h */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
+		61BC0DB11DBCB27100085DF8 /* magicDataBase */ = {
+			isa = PBXGroup;
+			children = (
+				61BC0DB21DBCB29300085DF8 /* MagicDataBase.h */,
+				61BC0DB31DBCB29300085DF8 /* MagicDataBaseImpl.h */,
+			);
+			name = magicDataBase;
+			sourceTree = "<group>";
+		};
+		61BC0DB41DBCB2A700085DF8 /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				61BC0DB51DBCB2B500085DF8 /* libboost_chrono.dylib */,
+				61BC0DB61DBCB2B500085DF8 /* libboost_system.dylib */,
+				61BC0DB71DBCB2B500085DF8 /* libboost_timer.dylib */,
+				61BC0DB81DBCB2B500085DF8 /* libboost_unit_test_framework.dylib */,
+			);
+			name = libs;
+			sourceTree = "<group>";
+		};
+		61BC0DC31DBCB4A000085DF8 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				61CCC14E1DBCB67700385209 /* templateExamples.h */,
+				61CCC14F1DBCB6AE00385209 /* processMessage.h */,
+			);
+			name = core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,7 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61A22B5E1DAAA7A1000E75AE /* main.cpp in Sources */,
+				61BC0DBE1DBCB33D00085DF8 /* main_test.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +290,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				"HEADER_SEARCH_PATHS[arch=*]" = /Users/Tweak/Workspaces/Cpp/UsingStd16/src/;
+				HEADER_SEARCH_PATHS = (
+					/boost/boost_1_60_0/,
+					/Users/Tweak/Workspaces/Cpp/UsingStd16/src,
+				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/libs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -235,7 +303,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				"HEADER_SEARCH_PATHS[arch=*]" = /Users/Tweak/Workspaces/Cpp/UsingStd16/src/;
+				HEADER_SEARCH_PATHS = (
+					/boost/boost_1_60_0/,
+					/Users/Tweak/Workspaces/Cpp/UsingStd16/src,
+				);
+				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/libs";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
