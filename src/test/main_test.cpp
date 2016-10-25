@@ -4,5 +4,6 @@
 
 
 #include "templateTest.h"
+#include "tokenizerTest.h"
 #include "processTest.h"
 
