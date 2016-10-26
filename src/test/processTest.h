@@ -10,21 +10,32 @@
 
 
 
-struct DataBaseFixture
+class DataBaseFixture
 {
-    DataBaseFixture() : dataBase() { BOOST_TEST_MESSAGE("setup fixture"); }
-    ~DataBaseFixture()             { BOOST_TEST_MESSAGE("teardown fixture"); }
+public:
+    DataBaseFixture()  { BOOST_TEST_MESSAGE("setup fixture"); }
+    ~DataBaseFixture()  { BOOST_TEST_MESSAGE("teardown fixture"); }
     
-    MagicDataBase<std::string> dataBase;
+    static MagicDataBase<std::string> & GetDataBase() { return dataBase; }
+    
+private:
+    static MagicDataBase<std::string> dataBase;
 };
 
 
-BOOST_FIXTURE_TEST_SUITE(processTestSuite, DataBaseFixture)
+MagicDataBase<std::string> DataBaseFixture::dataBase;
+
+
+//BOOST_GLOBAL_FIXTURE(DataBaseFixture);
+
+
+BOOST_AUTO_TEST_SUITE(processTestSuite)
 
 
 BOOST_AUTO_TEST_CASE(Init)
 {
     BOOST_TEST_MESSAGE("Test case: Init");
+    auto &dataBase = DataBaseFixture::GetDataBase();
     BOOST_TEST(dataBase.empty());
 }
 
@@ -32,6 +43,7 @@ BOOST_AUTO_TEST_CASE(Init)
 BOOST_AUTO_TEST_CASE(CreateFirstElement)
 {
     BOOST_TEST_MESSAGE("Test case: CreateFirstElement");
+    auto &dataBase = DataBaseFixture::GetDataBase();
     
     const char * message = "1#C#FN-2186";
     processMessage(message, dataBase);
@@ -44,6 +56,7 @@ BOOST_AUTO_TEST_CASE(CreateFirstElement)
 BOOST_AUTO_TEST_CASE(CreateSecondElement)
 {
     BOOST_TEST_MESSAGE("Test case: CreateSecondElement");
+    auto &dataBase = DataBaseFixture::GetDataBase();
     
     const char *message = "2#C#FN-2187";
     processMessage(message, dataBase);
@@ -57,6 +70,7 @@ BOOST_AUTO_TEST_CASE(CreateSecondElement)
 BOOST_AUTO_TEST_CASE(EraseSecondElement)
 {
     BOOST_TEST_MESSAGE("test case: EraseSecondElement");
+    auto &dataBase = DataBaseFixture::GetDataBase();
     
     const char *message = "3#E#FN-2187";
     processMessage(message, dataBase);
@@ -69,6 +83,7 @@ BOOST_AUTO_TEST_CASE(EraseSecondElement)
 BOOST_AUTO_TEST_CASE(EraseFirstElement)
 {
     BOOST_TEST_MESSAGE("Test case: EraseFirstElement");
+    auto &dataBase = DataBaseFixture::GetDataBase();
     
     const char *message = "4#E#FN-2186";
     processMessage(message, dataBase);
@@ -81,6 +96,8 @@ BOOST_AUTO_TEST_CASE(EraseFirstElement)
 BOOST_AUTO_TEST_CASE(End)
 {
     BOOST_TEST_MESSAGE("Test case: End");
+    auto &dataBase = DataBaseFixture::GetDataBase();
+    
     BOOST_TEST(dataBase.empty());
 }
 

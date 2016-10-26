@@ -32,7 +32,7 @@ void oldStyle(const char *message,
         return;
     }
     
-    int id = boost::lexical_cast<int>(tokens[0]);
+    //int id = boost::lexical_cast<int>(tokens[0]);
     std::string operationStr = tokens[1];
     if(operationStr.size() != 1)
     {
