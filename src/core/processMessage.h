@@ -29,9 +29,15 @@ void processMessageImpl(const char *message,
 void processMessage(const char *message,
                     MagicDataBase<std::string> &dataBase)
 {
-    processMessageImpl(message,
+    /*
+     processMessageImpl(message,
                        dataBase,
                        processMessageImplementations::oldStyle);
+     */
+
+    processMessageImpl(message,
+                       dataBase,
+                       processMessageImplementations::hierarchyStyle);
 }
 
 
