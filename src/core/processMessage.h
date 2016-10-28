@@ -1,24 +1,23 @@
-//
-//  processMessage.h
-//  UsingStd16
-//
-//  Created by Tweak on 23/10/16.
-//  Copyright © 2016 Tweak. All rights reserved.
-//
 
 #ifndef processMessage_h
 #define processMessage_h
 
 
-#include "processMessageImplementations.h"
+#include "oldStyleProcessMessage.h"
+#include "hierarchyStyleProcessMessage.h"
+#include "templateStyleProcessMessage.h"
+
+#include <MagicDataBase/magicDataBase.h>
+
 
 
 using FooType = void (*)(const char *,
-                         MagicDataBase<std::string> &);
+                         DataBase &);
+
 
 
 void processMessageImpl(const char *message,
-                        MagicDataBase<std::string> &dataBase,
+                        DataBase &dataBase,
                         FooType foo)
 {
     foo(message,
@@ -26,18 +25,30 @@ void processMessageImpl(const char *message,
 }
 
 
-void processMessage(const char *message,
-                    MagicDataBase<std::string> &dataBase)
-{
-    /*
-     processMessageImpl(message,
-                       dataBase,
-                       processMessageImplementations::oldStyle);
-     */
 
-    processMessageImpl(message,
-                       dataBase,
-                       processMessageImplementations::hierarchyStyle);
+void processMessage(const char *message,
+                    DataBase &dataBase)
+{
+    int option = 'T';
+    
+    if(option == 'O')
+    {
+       processMessageImpl(message,
+                          dataBase,
+                          processMessageImplementations::oldStyle);
+    }
+    else if(option == 'H')
+    {
+       processMessageImpl(message,
+                          dataBase,
+                          processMessageImplementations::hierarchyStyle);
+    }
+    else
+    {
+       processMessageImpl(message,
+                          dataBase,
+                          processMessageImplementations::templateStyle);
+    }
 }
 
 

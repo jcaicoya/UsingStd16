@@ -26,8 +26,6 @@ private:
 MagicDataBase<std::string> DataBaseFixture::dataBase;
 
 
-//BOOST_GLOBAL_FIXTURE(DataBaseFixture);
-
 
 BOOST_AUTO_TEST_SUITE(processTestSuite)
 

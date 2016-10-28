@@ -37,4 +37,8 @@ private:
 
 
 
+using DataType = std::string;
+using DataBase = MagicDataBase<DataType>;
+
+
 #endif /* MagicDataBase_h */

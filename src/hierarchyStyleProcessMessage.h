@@ -1,79 +1,31 @@
 //
-//  processMessageImplementations.h
+//  hierarchyStyleProcessMessage.h
 //  UsingStd16
 //
-//  Created by Tweak on 23/10/16.
+//  Created by Tweak on 28/10/16.
 //  Copyright © 2016 Tweak. All rights reserved.
 //
 
-#ifndef processMessageImplementations_h
-#define processMessageImplementations_h
+#ifndef hierarchyStyleProcessMessage_h
+#define hierarchyStyleProcessMessage_h
 
-
-#include <utils/Tokenizer.h>
+#include <magicDataBase/MagicDataBase.h>
 
 #include <boost/lexical_cast.hpp>
 #include <boost/optional.hpp>
 
 #include <iostream>
 
-
-
 namespace processMessageImplementations
 {
 
-using DataType = std::string;
-using DataBase = MagicDataBase<DataType>;
-    
-
-///////////////////////////////////////////////////////////////////////////////////////
-//
-void oldStyle(const char *message,
-              DataBase &dataBase)
-{
-    auto tokens = Tokenizer::Split(message, '#');
-    if(tokens.size() != 3)
-    {
-        std::cout << "wrong number of parameters in " << message << std::endl;
-        return;
-    }
-    
-    //Warning: unused vable id
-    //int id = boost::lexical_cast<int>(tokens[0]);
-    Tokenizer::Token operationStr = tokens[1];
-    if(operationStr.size() != 1)
-    {
-        std::cout << "operationStr unknown " << operationStr << std::endl;
-        return;
-    }
-    DataType data = tokens[2];
-    
-    char operation = operationStr.front();
-    switch(operation)
-    {
-        case 'C': dataBase.insert(data);
-            break;
-        case 'E': dataBase.erase(data);
-            break;
-        default:
-            std::cout << "operation unknown " << operation << std::endl;
-    }
-}
-//
-///////////////////////////////////////////////////////////////////////////////////////
-    
-    
-
-
-///////////////////////////////////////////////////////////////////////////////////////
-// How to describe the interface?
 class ActionInterface
 {
 public:
     virtual void execute(DataType data) = 0;
 };
 
-    
+
 
 class CreateAction : public ActionInterface
 {
@@ -85,32 +37,32 @@ public:
 private:
     DataBase &_dataBase;
 };
-    
+
 
 class EraseAction : public ActionInterface
 {
 public:
     EraseAction(DataBase &dataBase) : _dataBase(dataBase) {}
-        
+    
     void execute(DataType data) { _dataBase.erase(data); }
-        
+    
 private:
     DataBase &_dataBase;
 };
-    
+
 
 class UnknownAction : public ActionInterface
 {
 public:
     UnknownAction() {}
-        
-    void execute(DataType data) { std::cout << "operation unknown" << std::endl; }
-
-};
     
+    void execute(DataType data) { std::cout << "operation unknown" << std::endl; }
+    
+};
+
 
 enum class ActionType { Creation, Erase, Unknown };
-    
+
 ActionType charToActionType(char c)
 {
     ActionType actionType = ActionType::Unknown;
@@ -125,10 +77,10 @@ ActionType charToActionType(char c)
     
     return actionType;
 }
-    
-    
+
+
 using InputData = std::tuple<int, ActionType, DataType>;
-    
+
 boost::optional<InputData> splitMessage(const char *message)
 {
     boost::optional<InputData> result;
@@ -154,19 +106,17 @@ boost::optional<InputData> splitMessage(const char *message)
                        data);
     return result;
 }
-    
 
 
-    
+
+
 class ActionFactory
 {
 public:
     
     ActionFactory(DataBase &dataBase) : _dataBase(dataBase) {}
     
-    std::shared_ptr<ActionInterface> build(ActionType actionType,
-                                           DataBase &dataBase)
-    
+    std::shared_ptr<ActionInterface> build(ActionType actionType)
     {
         std::shared_ptr<ActionInterface> action;
         switch(actionType)
@@ -188,8 +138,8 @@ private:
 };
 
 
-    
-    
+
+
 void hierarchyStyle(const char *message,
                     DataBase &dataBase)
 {
@@ -204,33 +154,12 @@ void hierarchyStyle(const char *message,
     auto data = std::get<2>(inputData);
     
     ActionFactory actionFactory(dataBase);
-    auto actionPtr = actionFactory.build(actionType,
-                                         dataBase);
+    auto actionPtr = actionFactory.build(actionType);
     
     actionPtr->execute(data);
 }
-//
-///////////////////////////////////////////////////////////////////////////////////
-    
 
     
-    
-    
-    
-////////////////////////////////////////////////////////////////////////////////////
-//
-void templatized(const char *message,
-                 DataBase &dataBase)
-{
-        
-}
-//
-///////////////////////////////////////////////////////////////////////////////////
-    
-    
-    
-    
-} // end namespace processMessageImplementations
+} // end namespace
 
-
-#endif /* processMessageImplementations_h */
+#endif /* hierarchyStyleProcessMessage_h */
