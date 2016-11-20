@@ -3,7 +3,6 @@
 #define BOOST_TEST_DYN_LINK
 
 
-#include "templateTest.h"
 #include "tokenizerTest.h"
-#include "processTest.h"
-
+#include "dataBaseTest.h"
+//#include "templateTest.h"

@@ -1,9 +1,9 @@
 
-#ifndef processTest_h
-#define processTest_h
+#ifndef processMessageTest_h
+#define processMessageTest_h
 
 
-#include <magicDataBase/MagicDataBase.h>
+#include <utils/DataBase.h>
 #include <core/ProcessMessage.h>
 
 #include <boost/test/unit_test.hpp>
@@ -16,18 +16,18 @@ public:
     DataBaseFixture()  { BOOST_TEST_MESSAGE("setup fixture"); }
     ~DataBaseFixture()  { BOOST_TEST_MESSAGE("teardown fixture"); }
     
-    static MagicDataBase<std::string> & GetDataBase() { return dataBase; }
+    static DataBase<std::string> & GetDataBase() { return dataBase; }
     
 private:
-    static MagicDataBase<std::string> dataBase;
+    static DataBase<std::string> dataBase;
 };
 
 
-MagicDataBase<std::string> DataBaseFixture::dataBase;
+DataBase<std::string> DataBaseFixture::dataBase;
 
 
 
-BOOST_AUTO_TEST_SUITE(processTestSuite)
+BOOST_AUTO_TEST_SUITE(processMessageTestSuite)
 
 
 BOOST_AUTO_TEST_CASE(Init)
@@ -104,4 +104,4 @@ BOOST_AUTO_TEST_SUITE_END()
 
 
 
-#endif /* processTest_h */
+#endif /* processMessageTest_h */
