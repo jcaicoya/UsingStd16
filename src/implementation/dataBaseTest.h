@@ -3,14 +3,14 @@
 #define dataBaseTest_h
 
 
-#include <utils/DataBaseImpl.h>
+#include <utils/DataBase.h>
 
 #include <boost/test/unit_test.hpp>
 
 #define BOOST_TEST_DYN_LINK
 
 
-extern template class DataBaseImpl<std::string>;
+extern template class DataBase<std::string>;
 
 
 BOOST_AUTO_TEST_SUITE(DataBaseTestSuite)
@@ -18,14 +18,14 @@ BOOST_AUTO_TEST_SUITE(DataBaseTestSuite)
 
 BOOST_AUTO_TEST_CASE(Empty)
 {
-    DataBaseImpl<std::string> db;
+    DataBase<std::string> db;
     BOOST_TEST(0 == db.size());
 }
 
 
 BOOST_AUTO_TEST_CASE(InsertTwoElements)
 {
-    DataBaseImpl<std::string> db;
+    DataBase<std::string> db;
     
     std::string finn = "FN2187";
     db.insert(finn);
@@ -41,7 +41,7 @@ BOOST_AUTO_TEST_CASE(InsertTwoElements)
 
 BOOST_AUTO_TEST_CASE(InsertErase)
 {
-    DataBaseImpl<std::string> db;
+    DataBase<std::string> db;
     
     std::string finn = "FN2187";
     db.insert(finn);

@@ -100,8 +100,6 @@
 		61AC95FE1DBFEDB00087FE7A /* Tokenizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Tokenizer.h; path = src/utils/Tokenizer.h; sourceTree = SOURCE_ROOT; };
 		61AC95FF1DBFF3420087FE7A /* tokenizerTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = tokenizerTest.h; path = src/test/tokenizerTest.h; sourceTree = SOURCE_ROOT; };
 		61BC0DAD1DBCB22700085DF8 /* main_test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main_test.cpp; path = src/test/main_test.cpp; sourceTree = SOURCE_ROOT; };
-		61BC0DAE1DBCB22700085DF8 /* processMessageTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = processMessageTest.h; path = src/test/processMessageTest.h; sourceTree = SOURCE_ROOT; };
-		61BC0DAF1DBCB22700085DF8 /* templateExamplesTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = templateExamplesTest.h; path = src/test/templateExamplesTest.h; sourceTree = SOURCE_ROOT; };
 		61BC0DB21DBCB29300085DF8 /* DataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataBase.h; path = src/utils/DataBase.h; sourceTree = SOURCE_ROOT; };
 		61BC0DB31DBCB29300085DF8 /* DataBaseImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataBaseImpl.h; path = src/utils/DataBaseImpl.h; sourceTree = SOURCE_ROOT; };
 		61BC0DB51DBCB2B500085DF8 /* libboost_chrono.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libboost_chrono.dylib; path = libs/libboost_chrono.dylib; sourceTree = "<group>"; };
@@ -163,8 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				61BC0DAD1DBCB22700085DF8 /* main_test.cpp */,
-				61BC0DAE1DBCB22700085DF8 /* processMessageTest.h */,
-				61BC0DAF1DBCB22700085DF8 /* templateExamplesTest.h */,
 				61AC95FF1DBFF3420087FE7A /* tokenizerTest.h */,
 				619214251DD62544005ACA8D /* dataBaseTest.h */,
 			);

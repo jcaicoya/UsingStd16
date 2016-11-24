@@ -54,10 +54,7 @@ private:
     { std::cout << "Algorithm Three" << std::endl; }
 };
     
- 
 
-
-    
     
 } //end namespace
 

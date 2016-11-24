@@ -5,4 +5,3 @@
 
 #include "tokenizerTest.h"
 #include "dataBaseTest.h"
-//#include "templateTest.h"

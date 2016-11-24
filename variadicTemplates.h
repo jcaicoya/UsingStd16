@@ -12,7 +12,7 @@
 
 
 template <typename ParameterType>
-std::string parametersToString(ParameterType lastParameter)
+std::string parametersToString(ParameterType &&lastParameter)
 {
     std::stringstream ss;
     ss << lastParameter;
@@ -22,18 +22,18 @@ std::string parametersToString(ParameterType lastParameter)
 
 template <typename ParameterType,
           typename... ArgumentTypes>
-std::string parametersToString(ParameterType currentParameter,
-                               ArgumentTypes... arguments)
+std::string parametersToString(ParameterType &&currentParameter,
+                               ArgumentTypes&&... arguments)
 {
     std::stringstream ss;
-    ss << currentParameter << ' ' << parametersToString(arguments...);
+    ss << currentParameter << ' ' << parametersToString(std::forward<ArgumentTypes>(arguments)...);
     return ss.str();
 }
 
 
 
 template <typename ParameterType>
-std::string parametersToStringReverse(ParameterType firstParameter)
+std::string parametersToStringReverse(ParameterType &&firstParameter)
 {
     std::stringstream ss;
     ss << firstParameter;
@@ -43,11 +43,11 @@ std::string parametersToStringReverse(ParameterType firstParameter)
 
 template <typename ParameterType,
           typename... ArgumentTypes>
-std::string parametersToStringReverse(ParameterType currentParameter,
+std::string parametersToStringReverse(ParameterType &&currentParameter,
                                       ArgumentTypes... arguments)
 {
     std::stringstream ss;
-    ss <<  parametersToStringReverse(arguments...) << ' ' << currentParameter;
+    ss <<  parametersToStringReverse(std::forward<ArgumentTypes>(arguments)...) << ' ' << currentParameter;
     return ss.str();
 }
 

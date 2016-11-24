@@ -11,9 +11,10 @@
 
 
 template <typename ...Args>
-void printIsPalindrome(Args... args)
+void printIsPalindrome(Args&&... args)
 {
-    std::tuple<Args...> argsTuple(args...);
+    //std::tuple<Args...> argsTuple(std::forward<Args>(args)...);
+    auto argsTuple = std::forward_as_tuple(args...);
     std::cout << argsTuple << " is";
     if(false == isPalindrome(argsTuple))
     {
