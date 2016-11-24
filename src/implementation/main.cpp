@@ -11,7 +11,7 @@
 
 
 template <typename ...Args>
-void printPalindrome(Args... args)
+void printIsPalindrome(Args... args)
 {
     std::tuple<Args...> argsTuple(args...);
     std::cout << argsTuple << " is";
@@ -27,41 +27,48 @@ void printPalindrome(Args... args)
 int main(int argc, const char * argv[])
 {
     std::cout << std::boolalpha;
-    DataBase<std::string> db;
-    DataBase<int> otherDB;
+    
+    
+    
+    DataBase<std::string> stringDB;
     std::string st = "FN-2187";
     
-    bool result = templateExamples::foo1(db, st);
-    std::cout << "foo1: result = " << result << std::endl;
+    DataBase<double> doubleDB;
+    double zero = 0.0;
     
-    //result = templateExamples::foo1(otherDB, st);
-    //std::cout << "foo1: result = " << result << std::endl;
+    int prettyGirl = 15;
     
-    result = templateExamples::foo2(db, st);
-    std::cout << "foo2: result = " << result << std::endl;
+    /*
+    bool result1 = templateExamples::foo<std::string,
+                                        DataBase<std::string>,
+                                        std::string>(stringDB, st);
+     */
     
-    //result = templateExamples::foo2(otherDB, st);
-    //std::cout << "foo2: result = " << result << std::endl;
+    bool result1 = templateExamples::foo<double, int>(doubleDB, prettyGirl);
+    bool result2 = templateExamples::foo<double>(stringDB, zero);
+    bool result3 = templateExamples::foo<std::string>(stringDB, st);
     
-    
-    //result = templateExamples::foo3(db, st);
-    //std::cout << "foo3: result = " << result << std::endl;
-    
-    //result = templateExamples::foo3(otherDB, st);
-    //std::cout << "foo3: result = " << result << std::endl;
+
+
+    /*
+    DataBase<double> doubleDB;
+    int prettyGirl = 15;
+    bool result3 = templateExamples::foo<double,
+                                   DataBase<std::string>,
+                                   int>(doubleDB, prettyGirl);
+     */
     
     
     std::cout << parametersToString(1, "two", 3.0, 4) << std::endl;
     std::cout << parametersToStringReverse(1, "two", 3.0, 4) << std::endl;
-    //std::cout << palindrome(1, "one", "one", 1) << std::endl;
     
-    printPalindrome(1, 'A', 15.1, 'A', 1);
-    printPalindrome(1, 'A', 15.1, 'B', 1);
+    printIsPalindrome(1, 'A', 15.1, 'A', 1);
+    printIsPalindrome(1, 'A', 15.1, 'B', 1);
 
-    printPalindrome(1);
-    printPalindrome();
-    //printPalindrome(1, 'A', 15.1, 15.1, 'A', 1);
-    //printPalindrome(1, 'A', 15.1, 16.1, 'A', 1);
+    printIsPalindrome(1);
+    printIsPalindrome();
+    //printIsPalindrome(1, 'A', 15.1, 15.1, 'A', 1);
+    //printIsPalindrome(1, 'A', 15.1, 16.1, 'A', 1);
     
     
     
@@ -69,14 +76,5 @@ int main(int argc, const char * argv[])
     templateExamples::CompileTimeEvaluator<sizeof(integer) == sizeof(int)>();
     //templateExamples::CompileTimeEvaluator<sizeof(integer) == sizeof(char)>();
 
-    
-    const int TypeOfAlgorithm = 1;
-    std::vector<int> container;
-    
-    //templateExamples::Strategy::Execute(TypeOfAlgorithm, container);
-    
-
-    
-    
     return 0;
 }

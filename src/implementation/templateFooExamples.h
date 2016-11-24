@@ -6,79 +6,40 @@
 #include <utils/DataBase.h>
 
 #include <sstream>
+#include <iostream>
 
 
 namespace templateExamples
 {
 
-// Generic data base
-//
-template <typename DataType,
-          typename DataBase>
-bool foo1(DataBase &dataBase,
-              DataType data)
-{
-    if(true == dataBase.contains(data))
-    {
-        return true;
-    }
-    std::size_t size = dataBase.size();
-    dataBase.insert(data);
-    return dataBase.size() == size + 1;
-}
-    
-    
-// DataBase of DataType
-//
-template <typename DataType>
-bool foo2(DataBase<DataType> &dataBase,
-          DataType data)
-{
-    if(true == dataBase.contains(data))
-    {
-        return true;
-    }
-    std::size_t size = dataBase.size();
-    dataBase.insert(data);
-    return dataBase.size() == size + 1;
-}
-
-
-
-    
-
-// Generic data base with data dependence
-//
-template <typename DataType,
-          template <typename> typename DataBase>
-bool foo3(DataBase<DataType> &dataBase,
-          DataType data)
-{
-    if(true == dataBase.contains(data))
-    {
-        return true;
-    }
-    std::size_t size = dataBase.size();
-    dataBase.insert(data);
-    return dataBase.size() == size + 1;
-}
 
 
 // Specialization over a generic container of particular type
 //
+
 template <typename DataBaseValueType,
-          template <typename> typename DataBase,
           typename ParameterType>
-bool foo4(DataBase<DataBaseValueType> &dataBase,
-          ParameterType  data);
+bool foo(DataBase<DataBaseValueType> &dataBase,
+         ParameterType parameter)
+{
+    std::cout << "Generic specialisation" << std::endl;
+    DataBaseValueType dataToInsert(parameter);
+    if(true == dataBase.contains(dataToInsert)) { return true; }
+    std::size_t size = dataBase.size();
+    dataBase.insert(dataToInsert);
+    return dataBase.size() == size + 1;
+
+}
 
     
 // Partial specialisation
 //
 template <typename ParameterType>
-bool foo4(DataBase<std::string> &dataBase,
-          ParameterType parameter)
+bool foo(DataBase<std::string> &dataBase,
+         ParameterType parameter)
 {
+    std::cout << "Partial specialisation" << std::endl;
+    
     std::stringstream ss;
     ss << parameter;
     std::string data = ss.str();
@@ -88,23 +49,20 @@ bool foo4(DataBase<std::string> &dataBase,
     dataBase.insert(data);
     return dataBase.size() == size + 1;
 }
+    
 
 // Total specialization
 //
 template <>
-bool foo4(DataBase<std::string> &dataBase,
-          std::string data)
+bool foo(DataBase<std::string> &dataBase,
+         std::string data)
 {
+    std::cout << "Total specialisation" << std::endl;
     if(true == dataBase.contains(data)) { return true; }
     std::size_t size = dataBase.size();
     dataBase.insert(data);
     return dataBase.size() == size + 1;
 }
-
-
-
-
-    
 
 
 } // end namespace templateExamples

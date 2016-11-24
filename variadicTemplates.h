@@ -65,6 +65,9 @@ bool isPalindrome(First first,
 */
 
 
+
+
+
 template<typename Tuple, int N, unsigned Last>
 struct Printer
 {
@@ -180,6 +183,13 @@ std::ostream& operator<<(std::ostream& out, const std::tuple<Tuple...> &tuple) {
     out << "<";
     const bool IsZero = (sizeof...(Tuple) == 0);
     Checker<IsZero>::printTuple(out, tuple);
+    
+    /*
+    if(sizeof...(Tuple) > 0)
+    {
+       Printer<std::tuple<Tuple...>, 0, sizeof...(Tuple) - 1>::print(out, tuple);
+    }
+     */
     out << ">";
     return out;
 }
