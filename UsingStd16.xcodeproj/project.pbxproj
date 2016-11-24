@@ -90,7 +90,7 @@
 		613830C51DDF7A9200F983FC /* createMessages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = createMessages.h; sourceTree = "<group>"; };
 		613830C61DDF7C2B00F983FC /* actions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = actions.h; sourceTree = "<group>"; };
 		613830CB1DDF830300F983FC /* factoryWithHierarchy */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = factoryWithHierarchy; sourceTree = BUILT_PRODUCTS_DIR; };
-		6158E6EE1DE1D067006B812A /* variadicTemplates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = variadicTemplates.h; sourceTree = SOURCE_ROOT; };
+		6158E6EE1DE1D067006B812A /* variadicTemplates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = variadicTemplates.h; path = src/implementation/variadicTemplates.h; sourceTree = SOURCE_ROOT; };
 		6161886C1DDA408600F1194C /* templateTypeExamples.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = templateTypeExamples.h; path = src/implementation/templateTypeExamples.h; sourceTree = SOURCE_ROOT; };
 		619214161DD620A4005ACA8D /* implementation */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = implementation; sourceTree = BUILT_PRODUCTS_DIR; };
 		619214231DD624A5005ACA8D /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = src/implementation/main.cpp; sourceTree = SOURCE_ROOT; };
